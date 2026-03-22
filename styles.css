@@ -1,1435 +1,337 @@
-/* ═══════════════════════════════════════════════════════════
-   GUD FISIOTERAPIA — styles.css
-   Sistema de diseño: Sora (headings) + DM Sans (body)
-   Paleta: Azul eléctrico + Naranja energético + Blancos limpios
-   ═══════════════════════════════════════════════════════════ */
-
-/* ─── VARIABLES ─────────────────────────────────────────── */
-:root {
-  /* Colores principales */
-  --color-primary:       #0F7DC2;   /* Azul GUD — confianza, salud */
-  --color-primary-dark:  #0A5F96;   /* Hover del azul */
-  --color-primary-light: #E8F4FD;   /* Fondos sección azul suave */
-  --color-accent:        #FF6B35;   /* Naranja CTA — energía, deporte */
-  --color-accent-dark:   #E8541E;   /* Hover del naranja */
-
-  /* Neutros */
-  --color-dark:    #1A1A2E;   /* Casi negro azulado — textos */
-  --color-gray-80: #3D3D54;
-  --color-gray-50: #8888A0;
-  --color-gray-20: #E8E8F0;
-  --color-gray-10: #F4F4F8;
-  --color-white:   #FFFFFF;
-  --color-off-white: #F7F9FC;
-
-  /* Tipografías */
-  --font-heading: 'Sora', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
-
-  /* Tamaños tipográficos — fluid */
-  --text-xs:   0.75rem;     /* 12px */
-  --text-sm:   0.875rem;    /* 14px */
-  --text-base: 1rem;        /* 16px */
-  --text-lg:   1.125rem;    /* 18px */
-  --text-xl:   1.25rem;     /* 20px */
-  --text-2xl:  1.5rem;      /* 24px */
-  --text-3xl:  clamp(1.75rem, 3vw, 2.25rem);
-  --text-4xl:  clamp(2.25rem, 4vw, 3.5rem);
-  --text-5xl:  clamp(2.75rem, 5.5vw, 4.5rem);
-
-  /* Espaciado */
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-5:  1.25rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-
-  /* Layout */
-  --container-max: 1200px;
-  --container-pad: clamp(1rem, 5vw, 2.5rem);
-
-  /* Bordes y sombras */
-  --radius-sm:  6px;
-  --radius-md:  12px;
-  --radius-lg:  20px;
-  --radius-xl:  32px;
-  --radius-full: 9999px;
-
-  --shadow-sm:  0 2px 8px rgba(15, 125, 194, 0.08);
-  --shadow-md:  0 8px 32px rgba(15, 125, 194, 0.12);
-  --shadow-lg:  0 20px 60px rgba(15, 125, 194, 0.16);
-
-  /* Transiciones */
-  --transition-fast:   150ms ease;
-  --transition-base:   250ms ease;
-  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ─── RESET & BASE ───────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  line-height: 1.7;
-  color: var(--color-dark);
-  background-color: var(--color-white);
-  overflow-x: hidden;
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul { list-style: none; }
-address { font-style: normal; }
-
-/* ─── CONTAINER ──────────────────────────────────────────── */
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-pad);
-}
-
-/* ─── TIPOGRAFÍA ─────────────────────────────────────────── */
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.section-eyebrow {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: var(--space-3);
-  display: block;
-}
-
-.section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-dark);
-  margin-bottom: var(--space-4);
-}
-
-.section-desc {
-  font-size: var(--text-lg);
-  color: var(--color-gray-50);
-  max-width: 540px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: var(--space-12);
-}
-
-.section-header .section-desc {
-  margin-inline: auto;
-}
-
-/* ─── BOTONES ────────────────────────────────────────────── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-full);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-weight: 500;
-  line-height: 1;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all var(--transition-base);
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.btn--lg {
-  padding: 1rem 2.25rem;
-  font-size: var(--text-lg);
-}
-
-.btn--full { width: 100%; }
-
-.btn--primary {
-  background: var(--color-accent);
-  color: var(--color-white);
-  border-color: var(--color-accent);
-  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
-}
-
-.btn--primary:hover, .btn--primary:focus-visible {
-  background: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(255, 107, 53, 0.4);
-}
-
-.btn--ghost {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(4px);
-}
-
-.btn--ghost:hover, .btn--ghost:focus-visible {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--color-white);
-  transform: translateY(-2px);
-}
-
-.btn--outline {
-  background: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-.btn--outline:hover, .btn--outline:focus-visible {
-  background: var(--color-primary);
-  color: var(--color-white);
-  transform: translateY(-2px);
-}
-
-.btn--whatsapp {
-  background: #25D366;
-  color: var(--color-white);
-  border-color: #25D366;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-}
-
-.btn--whatsapp:hover, .btn--whatsapp:focus-visible {
-  background: #1da851;
-  border-color: #1da851;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
-}
-
-/* ─── HEADER ─────────────────────────────────────────────── */
-.header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-gray-20);
-  transition: box-shadow var(--transition-base);
-}
-
-.header.scrolled {
-  box-shadow: var(--shadow-md);
-}
-
-.header__inner {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  height: 72px;
-}
-
-.header__logo img {
-  height: 36px;
-  width: auto;
-  transition: opacity var(--transition-fast);
-}
-
-.header__logo:hover img { opacity: 0.8; }
-
-.header__nav { flex: 1; }
-
-.nav__list {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-}
-
-.nav__link {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-dark);
-  padding: var(--space-2) 0;
-  position: relative;
-  transition: color var(--transition-fast);
-}
-
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-primary);
-  border-radius: 2px;
-  transition: width var(--transition-base);
-}
-
-.nav__link:hover, .nav__link:focus-visible {
-  color: var(--color-primary);
-}
-
-.nav__link:hover::after { width: 100%; }
-
-.header__actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-/* Selector de idioma */
-.lang-selector {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  background: var(--color-gray-10);
-  border-radius: var(--radius-full);
-  padding: var(--space-1);
-}
-
-.lang-btn {
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  border: none;
-  background: transparent;
-  font-size: var(--text-xs);
-  font-weight: 600;
-  font-family: var(--font-body);
-  color: var(--color-gray-50);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  letter-spacing: 0.04em;
-}
-
-.lang-btn.active,
-.lang-btn:hover {
-  background: var(--color-white);
-  color: var(--color-primary);
-  box-shadow: var(--shadow-sm);
-}
-
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2);
-  border-radius: var(--radius-sm);
-}
-
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--color-dark);
-  border-radius: 2px;
-  transition: all var(--transition-base);
-  transform-origin: center;
-}
-
-.hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Menú móvil */
-.mobile-menu {
-  display: none;
-  background: var(--color-white);
-  padding: var(--space-6) var(--container-pad) var(--space-8);
-  border-top: 1px solid var(--color-gray-20);
-}
-
-.mobile-menu.open { display: block; }
-
-.mobile-nav__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  margin-bottom: var(--space-6);
-}
-
-.mobile-nav__link {
-  display: block;
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--text-lg);
-  font-weight: 500;
-  color: var(--color-dark);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-}
-
-.mobile-nav__link:hover {
-  background: var(--color-primary-light);
-  color: var(--color-primary);
-  padding-left: var(--space-6);
-}
-
-.mobile-lang {
-  display: flex;
-  gap: var(--space-2);
-  margin-bottom: var(--space-6);
-}
-
-.mobile-cta {
-  width: 100%;
-  text-align: center;
-}
-
-/* ─── HERO ───────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  background: linear-gradient(135deg, #0A5F96 0%, #0F7DC2 50%, #1A8FD4 100%);
-  min-height: 88vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding-block: var(--space-20);
-}
-
-/* Forma decorativa de fondo */
-.hero__bg-shape {
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 60%;
-  height: 140%;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: var(--color-white);
-  clip-path: ellipse(55% 100% at 50% 100%);
-  z-index: 1;
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  align-items: center;
-}
-
-.hero__content {
-  color: var(--color-white);
-}
-
-/* Eyebrow */
-.hero__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: var(--space-4);
-}
-
-.eyebrow__dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  display: inline-block;
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.3); }
-}
-
-/* H1 */
-.hero__title {
-  font-size: var(--text-5xl);
-  color: var(--color-white);
-  margin-bottom: var(--space-4);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-.hero__title em {
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 300;
-}
-
-.hero__subtitle {
-  font-size: var(--text-2xl);
-  font-family: var(--font-heading);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: var(--space-4);
-  line-height: 1.3;
-}
-
-.hero__desc {
-  font-size: var(--text-lg);
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: var(--space-8);
-  max-width: 440px;
-}
-
-/* CTAs hero */
-.hero__ctas {
-  display: flex;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-10);
-}
-
-/* Trust signals */
-.hero__trust {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-5) var(--space-6);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-lg);
-  max-width: fit-content;
-}
-
-.trust-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.trust-item__number {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-white);
-  line-height: 1;
-}
-
-.trust-item__label {
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.65);
-  text-align: center;
-  line-height: 1.3;
-}
-
-.trust-divider {
-  width: 1px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Imagen hero */
-.hero__media {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.hero__img-wrap {
-  position: relative;
-  max-width: 480px;
-  width: 100%;
-}
-
-.hero__img {
-  width: 100%;
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  box-shadow: var(--shadow-lg);
-  /* Placeholder mientras no hay imagen — quitar cuando se añada la foto */
-  min-height: 480px;
-  background: rgba(255,255,255,0.1);
-}
-
-/* Badge sobre la imagen */
-.hero__badge {
-  position: absolute;
-  bottom: var(--space-6);
-  left: calc(-1 * var(--space-8));
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  background: var(--color-white);
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  color: var(--color-dark);
-}
-
-.hero__badge-icon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.hero__badge strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--color-dark);
-  line-height: 1.2;
-}
-
-.hero__badge span {
-  font-size: var(--text-xs);
-  color: var(--color-gray-50);
-}
-
-/* Scroll indicator */
-.hero__scroll {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.scroll-line {
-  display: block;
-  width: 2px;
-  height: 48px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-  border-radius: 2px;
-  animation: scroll-pulse 2s ease-in-out infinite;
-}
-
-@keyframes scroll-pulse {
-  0%, 100% { opacity: 1; transform: scaleY(1); }
-  50% { opacity: 0.3; transform: scaleY(0.6); }
-}
-
-/* ─── SERVICIOS ──────────────────────────────────────────── */
-.servicios {
-  padding-block: var(--space-24);
-  background: var(--color-off-white);
-}
-
-.servicios__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-}
-
-.servicio-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8) var(--space-6);
-  border: 1px solid var(--color-gray-20);
-  transition: all var(--transition-slow);
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.servicio-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-  transform-origin: left;
-}
-
-.servicio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary-light);
-}
-
-.servicio-card:hover::before {
-  transform: scaleX(1);
-}
-
-.servicio-card__img-wrap {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto var(--space-6);
-  border: 3px solid var(--color-primary-light);
-  transition: border-color var(--transition-base), transform var(--transition-base);
-  flex-shrink: 0;
-}
-
-.servicio-card:hover .servicio-card__img-wrap {
-  border-color: var(--color-primary);
-  transform: scale(1.04);
-}
-
-.servicio-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  /* Recortar el fondo negro de los PNG circulares */
-  mix-blend-mode: multiply;
-}
-
-.servicio-card__title {
-  font-size: var(--text-xl);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--color-dark);
-  margin-bottom: var(--space-3);
-}
-
-.servicio-card__desc {
-  font-size: var(--text-sm);
-  color: var(--color-gray-50);
-  line-height: 1.7;
-  margin-bottom: var(--space-5);
-}
-
-.servicio-card__link {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-primary);
-  transition: gap var(--transition-fast);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.servicio-card__link:hover {
-  gap: var(--space-2);
-  color: var(--color-primary-dark);
-}
-
-/* ─── SOBRE PABLO ────────────────────────────────────────── */
-.sobre-pablo {
-  padding-block: var(--space-24);
-  background: var(--color-white);
-}
-
-.sobre-pablo__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  align-items: center;
-}
-
-/* Imagen */
-.pablo__media { position: relative; }
-
-.pablo__img-wrap {
-  position: relative;
-  max-width: 440px;
-}
-
-.pablo__img {
-  width: 100%;
-  border-radius: var(--radius-xl);
-  object-fit: cover;
-  display: block;
-  /* Placeholder */
-  min-height: 480px;
-  background: var(--color-gray-10);
-}
-
-/* Credenciales flotantes sobre la imagen */
-.pablo__cred {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  background: var(--color-white);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-dark);
-  white-space: nowrap;
-  max-width: calc(100% - var(--space-8));
-}
-
-.pablo__cred-icon { font-size: 1.1rem; }
-
-.pablo__cred--top {
-  top: var(--space-6);
-  right: calc(-1 * var(--space-6));
-}
-
-.pablo__cred--bottom {
-  bottom: var(--space-8);
-  left: calc(-1 * var(--space-6));
-}
-
-/* Contenido */
-.pablo__content { padding-left: var(--space-4); }
-
-.pablo__text {
-  color: var(--color-gray-80);
-  margin-bottom: var(--space-5);
-  font-size: var(--text-lg);
-  line-height: 1.75;
-}
-
-.pablo__text--highlight {
-  font-size: var(--text-xl);
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--color-primary);
-  padding-left: var(--space-5);
-  border-left: 3px solid var(--color-accent);
-  line-height: 1.5;
-}
-
-/* Skills pills */
-.pablo__skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
-}
-
-.skill-pill {
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-primary-light);
-  color: var(--color-primary);
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  transition: all var(--transition-fast);
-}
-
-.skill-pill:hover {
-  background: var(--color-primary);
-  color: var(--color-white);
-}
-
-/* ─── RESEÑAS ────────────────────────────────────────────── */
-.resenas {
-  padding-block: var(--space-20);
-  background: var(--color-primary-light);
-}
-
-.resenas__placeholder {
-  display: flex;
-  justify-content: center;
-}
-
-.resenas__placeholder-inner {
-  text-align: center;
-  max-width: 480px;
-  padding: var(--space-12) var(--space-8);
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-}
-
-.stars-display {
-  font-size: 2rem;
-  color: #F5A623;
-  letter-spacing: 4px;
-  margin-bottom: var(--space-5);
-}
-
-.resenas__placeholder-text {
-  font-size: var(--text-lg);
-  color: var(--color-gray-80);
-  line-height: 1.6;
-  margin-bottom: var(--space-6);
-}
-
-.resenas__note {
-  margin-top: var(--space-4);
-  color: var(--color-gray-50);
-  font-size: var(--text-sm);
-}
-
-/* ─── UBICACIÓN ──────────────────────────────────────────── */
-.ubicacion {
-  padding-block: var(--space-24);
-  background: var(--color-white);
-}
-
-.ubicacion__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  align-items: start;
-}
-
-.ubicacion__address {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  margin-block: var(--space-8);
-}
-
-.info-row {
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-start;
-}
-
-.info-row__icon {
-  font-size: 1.25rem;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.info-row strong {
-  display: block;
-  font-weight: 600;
-  color: var(--color-dark);
-  margin-bottom: var(--space-1);
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.info-row span {
-  display: block;
-  color: var(--color-gray-80);
-}
-
-.info-row a {
-  color: var(--color-primary);
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.info-note {
-  font-size: var(--text-sm);
-  color: var(--color-gray-50);
-}
-
-.ubicacion__ctas {
-  display: flex;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-}
-
-.ubicacion__map {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-gray-20);
-}
-
-.ubicacion__map iframe {
-  display: block;
-  border-radius: var(--radius-lg);
-}
-
-/* ─── CONTACTO — tarjetas teléfono y WhatsApp ────────────── */
-.contacto {
-  padding-block: var(--space-24);
-  background: var(--color-dark);
-  position: relative;
-  overflow: hidden;
-}
-
-.contacto::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 500px;
-  height: 500px;
-  background: var(--color-primary);
-  opacity: 0.08;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.contacto__inner {
-  max-width: 640px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.contacto .section-eyebrow { color: var(--color-accent); }
-
-.contacto__title {
-  font-size: var(--text-4xl);
-  color: var(--color-white);
-  margin-bottom: var(--space-4);
-  font-family: var(--font-heading);
-  font-weight: 700;
-}
-
-.contacto__desc {
-  font-size: var(--text-lg);
-  color: rgba(255,255,255,0.6);
-  line-height: 1.7;
-  margin-bottom: var(--space-10);
-}
-
-/* Tarjetas */
-.contacto__cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-  margin-bottom: var(--space-8);
-}
-
-.contacto-card {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-7) var(--space-6);
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(255,255,255,0.1);
-  text-decoration: none;
-  transition: all var(--transition-slow);
-  text-align: left;
-}
-
-.contacto-card--whatsapp {
-  background: rgba(37, 211, 102, 0.1);
-  border-color: rgba(37, 211, 102, 0.25);
-  color: var(--color-white);
-}
-
-.contacto-card--whatsapp:hover {
-  background: rgba(37, 211, 102, 0.18);
-  border-color: rgba(37, 211, 102, 0.5);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.2);
-}
-
-.contacto-card--phone {
-  background: rgba(15, 125, 194, 0.1);
-  border-color: rgba(15, 125, 194, 0.25);
-  color: var(--color-white);
-}
-
-.contacto-card--phone:hover {
-  background: rgba(15, 125, 194, 0.18);
-  border-color: rgba(15, 125, 194, 0.5);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(15, 125, 194, 0.2);
-}
-
-.contacto-card__icon {
-  flex-shrink: 0;
-  width: 64px;
-  height: 64px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contacto-card--whatsapp .contacto-card__icon {
-  background: rgba(37, 211, 102, 0.15);
-  color: #25D366;
-}
-
-.contacto-card--phone .contacto-card__icon {
-  background: rgba(15, 125, 194, 0.15);
-  color: var(--color-primary);
-}
-
-.contacto-card__body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.contacto-card__label {
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-}
-
-.contacto-card__value {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-white);
-  line-height: 1.2;
-}
-
-.contacto-card__hint {
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.5);
-}
-
-.contacto__note {
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.35);
-  line-height: 1.7;
-}
-
-.contacto__note strong {
-  color: rgba(255,255,255,0.55);
-  font-weight: 500;
-}
-
-@media (max-width: 560px) {
-  .contacto__cards {
-    grid-template-columns: 1fr;
+<!DOCTYPE html>
+<html lang="es">
+<head>  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Punción Seca y Terapia Invasiva en Madrid | GUD Fisioterapia – Pablo Ruiz</title>
+  <meta name="description" content="Punción seca y electrólisis percutánea (EPI) en Chamartín, Madrid. Tratamiento de lesiones musculotendinosas crónicas. Pablo Ruiz, fisioterapeuta especializado. ☎ 642 490 167">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gudfisioterapia.com/terapia-invasiva/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gudfisioterapia.com/terapia-invasiva/">
+  <meta property="og:title" content="Punción Seca y Terapia Invasiva Madrid | GUD Fisioterapia">
+  <meta property="og:description" content="Terapia manual en Chamartín. Manipulaciones y movilizaciones articulares precisas. Pablo Ruiz, fisioterapeuta con +15 años de experiencia.">
+  <meta property="og:image" content="https://gudfisioterapia.com/img/og-image.jpg">
+
+  <link rel="alternate" hreflang="es" href="https://gudfisioterapia.com/terapia-invasiva/">
+  <link rel="alternate" hreflang="x-default" href="https://gudfisioterapia.com/terapia-invasiva/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalTherapy",
+        "name": "Terapia Invasiva — Punción Seca y EPI",
+        "description": "Técnicas de fisioterapia invasiva como punción seca y electrólisis percutánea (EPI) para el tratamiento de lesiones musculotendinosas crónicas.",
+        "relevantSpecialty": "Fisioterapia",
+        "provider": {
+          "@type": "MedicalBusiness",
+          "@id": "https://gudfisioterapia.com/#business",
+          "name": "GUD Fisioterapia",
+          "telephone": "+34642490167",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Apolonio Morales 10, local F",
+            "addressLocality": "Madrid",
+            "postalCode": "28036",
+            "addressCountry": "ES"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://gudfisioterapia.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Terapia Invasiva — Punción Seca y EPI", "item": "https://gudfisioterapia.com/terapia-invasiva/" }
+        ]
+      }
+    ]
   }
+  </script>
 
-  .contacto-card {
-    padding: var(--space-5) var(--space-5);
-  }
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/gud-fisioterapia/styles.css">
+  <link rel="stylesheet" href="/gud-fisioterapia/service.css">
+</head>
+<body>
 
-/* ─── FOOTER ─────────────────────────────────────────────── */
-.footer {
-  background: #111120;
-  padding-block: var(--space-12) var(--space-8);
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/gud-fisioterapia/" class="header__logo" aria-label="GUD Fisioterapia – Inicio">
+        <img src="/gud-fisioterapia/img/logo-gud.png" alt="GUD Fisioterapia" width="120" height="40">
+      </a>
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/gud-fisioterapia/#servicios" class="nav__link">Servicios</a></li>
+          <li><a href="/gud-fisioterapia/#sobre-pablo" class="nav__link">Sobre mí</a></li>
+          <li><a href="/gud-fisioterapia/#ubicacion" class="nav__link">Ubicación</a></li>
+          <li><a href="/gud-fisioterapia/#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <div class="lang-selector">
+          <button class="lang-btn active" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" onclick="setLang('fr')">FR</button>
+          <button class="lang-btn" onclick="setLang('de')">DE</button>
+        </div>
+        <a href="tel:+34642490167" class="btn btn--primary header__cta">Pedir cita</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav>
+        <ul class="mobile-nav__list">
+          <li><a href="/gud-fisioterapia/#servicios" class="mobile-nav__link">Servicios</a></li>
+          <li><a href="/gud-fisioterapia/#sobre-pablo" class="mobile-nav__link">Sobre mí</a></li>
+          <li><a href="/gud-fisioterapia/#ubicacion" class="mobile-nav__link">Ubicación</a></li>
+          <li><a href="/gud-fisioterapia/#contacto" class="mobile-nav__link">Contacto</a></li>
+        </ul>
+        <a href="tel:+34642490167" class="btn btn--primary mobile-cta">Pedir cita ahora</a>
+      </nav>
+    </div>
+  </header>
 
-.footer__inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
-  gap: var(--space-10);
-  align-items: start;
-  padding-bottom: var(--space-8);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: var(--space-6);
-}
+  <main>
 
-.footer__brand img {
-  margin-bottom: var(--space-4);
-  /* Placeholder si no hay logo blanco */
-  filter: brightness(10);
-  opacity: 0.9;
-}
+    <!-- HERO SERVICIO -->
+    <section class="sv-hero">
+      <div class="container sv-hero__inner">
+        <div class="sv-hero__content" data-animate="fade-up">
+          <!-- Breadcrumb -->
+          <nav class="sv-breadcrumb" aria-label="Ruta de navegación">
+            <a href="/gud-fisioterapia/">Inicio</a>
+            <span aria-hidden="true">›</span>
+            <span>Terapia Manual</span>
+          </nav>
+          <p class="section-eyebrow">Especialidad</p>
+          <h1 class="sv-hero__title">Terapia Invasiva<br><em>en Chamartín, Madrid</em></h1>
+          <p class="sv-hero__desc">
+            Punción seca y electrólisis percutánea (EPI) para lesiones musculotendinosas que no responden a tratamientos convencionales. Resultados donde otras técnicas no han funcionado.
+          </p>
+          <div class="sv-hero__ctas">
+            <a href="tel:+34642490167" class="btn btn--primary btn--lg">Pedir cita</a>
+            <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20terapia%20invasiva" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">WhatsApp</a>
+          </div>
+        </div>
+        <div class="sv-hero__media" data-animate="fade-left">
+          <img
+            src="/gud-fisioterapia/img/servicio-terapia-invasiva.png"
+            alt="Punción seca y electrólisis percutánea (EPI) en Chamartín, Madrid"
+            width="480" height="480"
+            loading="eager"
+            fetchpriority="high"
+            class="sv-hero__img sv-hero__img--circle"
+          >
+        </div>
+      </div>
+    </section>
 
-.footer__tagline {
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.4);
-  line-height: 1.6;
-}
+    <!-- QUÉ ES -->
+    <section class="sv-section">
+      <div class="container sv-section__inner">
+        <div class="sv-section__text" data-animate="fade-up">
+          <p class="section-eyebrow">Qué es</p>
+          <h2 class="section-title">Cuando otras técnicas<br>no han funcionado</h2>
+          <p>La terapia invasiva agrupa técnicas fisioterapéuticas que utilizan agujas para actuar directamente sobre el tejido dañado. No es acupuntura — el objetivo es fisiológico, no energético, y está respaldado por evidencia científica.</p>
+          <p>Está especialmente indicada para lesiones crónicas que llevan meses sin resolverse con fisioterapia convencional, masaje o antiinflamatorios.</p>
+          <p class="sv-highlight">Si llevas meses con la misma tendinopatía, contractura profunda o cicatriz dolorosa, probablemente necesitas actuar sobre el tejido de otra manera.</p>
+        </div>
+        <div class="sv-section__aside" data-animate="fade-left">
+          <div class="sv-info-card">
+            <h3 class="sv-info-card__title">¿Para quién es?</h3>
+            <ul class="sv-list">
+              <li>Tendinopatías crónicas (hombro, rodilla, codo)</li>
+              <li>Fascitis plantar resistente</li>
+              <li>Puntos gatillo miofasciales profundos</li>
+              <li>Cicatrices dolorosas o adheridas</li>
+              <li>Síndrome del manguito rotador</li>
+              <li>Epicondilitis y epitrocleitis</li>
+              <li>Tendinitis rotuliana y aquílea</li>
+              <li>Lesiones musculares crónicas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.footer__nav-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: var(--space-4);
-}
+    <!-- TÉCNICAS -->
+    <section class="sv-section sv-section--alt">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <p class="section-eyebrow">Técnicas</p>
+          <h2 class="section-title">Las dos técnicas principales</h2>
+          <p class="section-desc">Dos herramientas distintas, un mismo objetivo: actuar sobre el tejido dañado para activar su reparación.</p>
+        </div>
+        <div class="sv-tecnicas__grid">
+          <div class="sv-tecnica" data-animate="fade-up" data-delay="0">
+            <div class="sv-tecnica__num">01</div>
+            <h3 class="sv-tecnica__title">Punción seca</h3>
+            <p class="sv-tecnica__desc">Aguja de acupuntura insertada en el punto gatillo o zona dañada para provocar una respuesta de espasmo local y liberar la tensión acumulada. Muy eficaz en contracturas profundas.</p>
+          </div>
+          <div class="sv-tecnica" data-animate="fade-up" data-delay="100">
+            <div class="sv-tecnica__num">02</div>
+            <h3 class="sv-tecnica__title">Electrólisis percutánea (EPI)</h3>
+            <p class="sv-tecnica__desc">Corriente galvánica aplicada a través de una aguja directamente sobre el tejido tendinoso degenerado. Genera una respuesta inflamatoria controlada que activa la reparación del tejido.</p>
+          </div>
+          <div class="sv-tecnica" data-animate="fade-up" data-delay="200">
+            <div class="sv-tecnica__num">03</div>
+            <h3 class="sv-tecnica__title">Combinación de técnicas</h3>
+            <p class="sv-tecnica__desc">En la mayoría de los casos combinamos punción seca o EPI con trabajo manual posterior para maximizar el resultado de cada sesión.</p>
+          </div>
+          <div class="sv-tecnica" data-animate="fade-up" data-delay="300">
+            <div class="sv-tecnica__num">04</div>
+            <h3 class="sv-tecnica__title">¿Es para mí?</h3>
+            <p class="sv-tecnica__desc">Si llevas más de 3 meses con la misma lesión y no ha mejorado con tratamiento conservador, la terapia invasiva probablemente es el siguiente paso lógico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.footer__nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
+    <!-- POR QUÉ PABLO -->
+    <section class="sv-section">
+      <div class="container sv-pablo">
+        <div class="sv-pablo__media" data-animate="fade-right">
+          <img src="/gud-fisioterapia/img/pablo-hero.jpg" alt="Pablo Ruiz, especialista en terapia invasiva en Chamartín" width="480" height="560" loading="lazy" class="sv-pablo__img">
+        </div>
+        <div class="sv-pablo__content" data-animate="fade-left">
+          <p class="section-eyebrow">Por qué elegirme</p>
+          <h2 class="section-title">Más de 15 años<br>de experiencia clínica</h2>
+          <p>Diplomado en Fisioterapia en 2007, he trabajado en hospitales públicos, mutuas y clínicas privadas en Madrid. En todos estos años he desarrollado un criterio clínico que va más allá de aplicar protocolos: escucho, evalúo y adapto cada tratamiento.</p>
+          <p>La terapia invasiva es una herramienta que utilizo cuando el tejido necesita una intervención más directa. Siempre evaluamos primero si es la opción más adecuada para tu caso.</p>
+          <div class="sv-trust">
+            <div class="sv-trust__item">
+              <strong>+15</strong>
+              <span>años de experiencia</span>
+            </div>
+            <div class="sv-trust__item">
+              <strong>Dipl.</strong>
+              <span>Fisioterapeuta colegiado</span>
+            </div>
+            <div class="sv-trust__item">
+              <strong>Madrid</strong>
+              <span>Hospitales y clínicas</span>
+            </div>
+          </div>
+          <a href="tel:+34642490167" class="btn btn--primary btn--lg" style="margin-top:2rem; display:inline-flex;">Reservar sesión</a>
+        </div>
+      </div>
+    </section>
 
-.footer__nav a {
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.6);
-  transition: color var(--transition-fast);
-}
+    <!-- FAQ -->
+    <section class="sv-section sv-section--alt">
+      <div class="container sv-faq__wrap">
+        <div class="section-header" data-animate="fade-up">
+          <p class="section-eyebrow">Preguntas frecuentes</p>
+          <h2 class="section-title">Lo que me suelen preguntar</h2>
+        </div>
+        <div class="sv-faq" data-animate="fade-up">
+          <details class="sv-faq__item">
+            <summary class="sv-faq__q">¿Cuántas sesiones necesitaré?</summary>
+            <p class="sv-faq__a">Depende del problema y de cuánto tiempo llevas con él. Una lesión aguda reciente puede resolverse en 2-4 sesiones. Un dolor crónico de meses puede necesitar 6-10. En la primera sesión te daré una estimación honesta.</p>
+          </details>
+          <details class="sv-faq__item">
+            <summary class="sv-faq__q">¿Duele la terapia manual?</summary>
+            <p class="sv-faq__a">No debería doler. Puede haber molestia durante la sesión, especialmente en zonas muy tensas, pero nunca dolor agudo. Si sientes algo desagradable, me lo dices y ajusto la técnica.</p>
+          </details>
+          <details class="sv-faq__item">
+            <summary class="sv-faq__q">¿Hace falta derivación médica?</summary>
+            <p class="sv-faq__a">No. Puedes venir directamente sin necesitar receta ni derivación. Si tienes pruebas de imagen (radiografía, resonancia) tráelas — ayudan, pero no son imprescindibles.</p>
+          </details>
+          <details class="sv-faq__item">
+            <summary class="sv-faq__q">¿Qué diferencia hay con un masaje?</summary>
+            <p class="sv-faq__a">El masaje relaja el músculo temporalmente. La terapia manual actúa sobre la articulación, la fascia y el sistema nervioso con técnicas específicas orientadas a resolver el problema mecánico. Los resultados son más duraderos.</p>
+          </details>
+          <details class="sv-faq__item">
+            <summary class="sv-faq__q">¿Dónde está la clínica?</summary>
+            <p class="sv-faq__a">En Calle Apolonio Morales 10, local F — La Fábrica, Chamartín, Madrid. Lunes a viernes de 7:00 a 20:00.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-.footer__nav a:hover { color: var(--color-white); }
+    <!-- CTA FINAL -->
+    <section class="sv-cta">
+      <div class="container sv-cta__inner" data-animate="fade-up">
+        <h2 class="sv-cta__title">¿Meses con la misma lesión<br>sin mejorar?</h2>
+        <p class="sv-cta__desc">Evaluamos si la terapia invasiva es lo que necesitas. Si no lo es, te lo digo. Si lo es, empezamos.</p>
+        <div class="sv-cta__btns">
+          <a href="tel:+34642490167" class="btn btn--primary btn--lg">Llamar ahora</a>
+          <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20terapia%20invasiva" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">WhatsApp</a>
+        </div>
+        <p class="sv-cta__address">C/ Apolonio Morales 10, local F · Chamartín · Madrid · Lun–Vie 7:00–20:00</p>
+      </div>
+    </section>
 
-.footer__contact address p {
-  font-size: var(--text-sm);
-  color: rgba(255,255,255,0.5);
-  margin-bottom: var(--space-2);
-  line-height: 1.5;
-}
+    <!-- OTROS SERVICIOS -->
+    <section class="sv-otros">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <p class="section-eyebrow">También ofrezco</p>
+          <h2 class="section-title">Otros servicios</h2>
+        </div>
+        <div class="sv-otros__grid">
+          <a href="/gud-fisioterapia/osteopatia/" class="sv-otro-card">
+            <img src="/gud-fisioterapia/img/servicio-osteopatia.png" alt="Osteopatía en Madrid" width="120" height="120" loading="lazy">
+            <span>Osteopatía</span>
+          </a>
+          <a href="/gud-fisioterapia/terapia-invasiva/" class="sv-otro-card">
+            <img src="/gud-fisioterapia/img/servicio-terapia-invasiva.png" alt="Terapia invasiva en Madrid" width="120" height="120" loading="lazy">
+            <span>Terapia Invasiva</span>
+          </a>
+          <a href="/gud-fisioterapia/fisioterapia-deportiva/" class="sv-otro-card">
+            <img src="/gud-fisioterapia/img/servicio-lesiones-deportivas.png" alt="Fisioterapia deportiva en Madrid" width="120" height="120" loading="lazy">
+            <span>Fisio Deportiva</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-.footer__contact a {
-  color: var(--color-primary);
-  transition: color var(--transition-fast);
-}
+  </main>
 
-.footer__contact a:hover { color: var(--color-white); }
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="/gud-fisioterapia/img/logo-gud-white.png" alt="GUD Fisioterapia" width="100" height="34" loading="lazy">
+        <p class="footer__tagline">Fisioterapia honesta.<br>Resultados reales.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navegación del pie de página">
+        <h3 class="footer__nav-title">Servicios</h3>
+        <ul>
+          <li><a href="/gud-fisioterapia/terapia-invasiva/">Terapia Manual</a></li>
+          <li><a href="/gud-fisioterapia/osteopatia/">Osteopatía</a></li>
+          <li><a href="/gud-fisioterapia/terapia-invasiva/">Terapia Invasiva</a></li>
+          <li><a href="/gud-fisioterapia/fisioterapia-deportiva/">Fisio Deportiva</a></li>
+        </ul>
+      </nav>
+      <div class="footer__contact">
+        <h3 class="footer__nav-title">Contacto</h3>
+        <address>
+          <p>C/ Apolonio Morales 10, local F</p>
+          <p>Madrid · La Fábrica</p>
+          <p><a href="tel:+34642490167">+34 642 490 167</a></p>
+          <p>Lunes–Viernes · 7:00–20:00</p>
+        </address>
+      </div>
+      <div class="footer__legal">
+        <p>© 2025 GUD Fisioterapia · Pablo Ruiz</p>
+        <p><a href="/gud-fisioterapia/privacidad/">Política de privacidad</a> · <a href="/gud-fisioterapia/aviso-legal/">Aviso legal</a></p>
+        <p class="footer__credit">Web por <a href="https://sakitdigital.com" target="_blank" rel="noopener">Sakit Digital</a></p>
+      </div>
+    </div>
+  </footer>
 
-.footer__legal p {
-  font-size: var(--text-xs);
-  color: rgba(255,255,255,0.3);
-  line-height: 1.8;
-}
+  <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.122 1.526 5.854L.057 23.882a.5.5 0 00.614.614l6.028-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 01-5.088-1.396.5.5 0 00-.384-.05l-4.252 1.036 1.036-4.252a.5.5 0 00-.05-.384A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <span class="whatsapp-float__tooltip">¿Hablamos?</span>
+  </a>
 
-.footer__legal a {
-  color: rgba(255,255,255,0.4);
-  transition: color var(--transition-fast);
-}
-
-.footer__legal a:hover { color: rgba(255,255,255,0.7); }
-
-.footer__credit a { color: var(--color-primary); }
-
-/* ─── WHATSAPP FLOTANTE ──────────────────────────────────── */
-.whatsapp-float {
-  position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
-  z-index: 9999;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-white);
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
-  transition: all var(--transition-base);
-  animation: whatsapp-pulse 3s ease-in-out infinite;
-}
-
-@keyframes whatsapp-pulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4); }
-  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0); }
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1) translateY(-2px);
-  background: #1da851;
-  animation-play-state: paused;
-}
-
-/* Tooltip */
-.whatsapp-float__tooltip {
-  position: absolute;
-  right: calc(100% + 12px);
-  background: var(--color-dark);
-  color: var(--color-white);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(8px);
-  transition: all var(--transition-base);
-}
-
-.whatsapp-float__tooltip::after {
-  content: '';
-  position: absolute;
-  right: -4px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  background: var(--color-dark);
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.whatsapp-float:hover .whatsapp-float__tooltip {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* ─── ANIMACIONES DE ENTRADA ─────────────────────────────── */
-[data-animate] {
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-[data-animate="fade-up"]    { transform: translateY(32px); }
-[data-animate="fade-left"]  { transform: translateX(32px); }
-[data-animate="fade-right"] { transform: translateX(-32px); }
-
-[data-animate].is-visible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* Delays staggered para los servicios */
-[data-delay="100"] { transition-delay: 0.1s; }
-[data-delay="200"] { transition-delay: 0.2s; }
-[data-delay="300"] { transition-delay: 0.3s; }
-
-/* ─── RESPONSIVE ─────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .servicios__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero__inner {
-    gap: var(--space-10);
-  }
-
-  .sobre-pablo__inner,
-  .ubicacion__inner {
-    gap: var(--space-10);
-  }
-
-  .footer__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-  }
-}
-
-@media (max-width: 768px) {
-  /* Header */
-  .header__nav,
-  .header__actions { display: none; }
-  .hamburger { display: flex; }
-  .header__cta { display: none; }
-
-  /* Hero */
-  .hero {
-    min-height: auto;
-    padding-block: var(--space-12) var(--space-16);
-  }
-
-  .hero__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  .hero__media {
-    justify-content: center;
-    order: -1;
-  }
-
-  .hero__img-wrap {
-    max-width: 320px;
-  }
-
-  .hero__badge {
-    left: var(--space-4);
-    bottom: var(--space-4);
-  }
-
-  .hero__trust {
-    flex-wrap: wrap;
-    gap: var(--space-4);
-    max-width: 100%;
-  }
-
-  .trust-divider { display: none; }
-
-  /* Servicios */
-  .servicios__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-
-  /* Pablo */
-  .sobre-pablo__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  .pablo__cred--top { right: var(--space-3); top: var(--space-4); }
-  .pablo__cred--bottom { left: var(--space-3); bottom: var(--space-4); }
-  .pablo__content { padding-left: 0; }
-  .pablo__img-wrap { margin-inline: auto; }
-
-  /* Ubicación */
-  .ubicacion__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  /* Contacto */
-  .form-row { grid-template-columns: 1fr; }
-  .contacto__form { padding: var(--space-6) var(--space-5); }
-
-  /* Footer */
-  .footer__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-}
-
-@media (max-width: 480px) {
-  :root { --container-pad: 1.25rem; }
-
-  .hero__ctas {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero__ctas .btn { text-align: center; }
-
-  .ubicacion__ctas { flex-direction: column; }
-}
-
-/* ─── FOCUS VISIBLE — Accesibilidad ─────────────────────── */
-:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
-
-/* ─── REDUCED MOTION ─────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html { scroll-behavior: auto; }
-  [data-animate] { opacity: 1; transform: none; }
-}
+  <script src="/gud-fisioterapia/script.js" defer></script>
+</body>
+</html>
