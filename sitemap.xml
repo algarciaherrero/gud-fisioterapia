@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- HOME — Español (prioridad máxima) -->
+  <url>
+    <loc>https://gudfisioterapia.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gudfisioterapia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gudfisioterapia.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gudfisioterapia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gudfisioterapia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gudfisioterapia.com/"/>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- HOME — English -->
+  <url>
+    <loc>https://gudfisioterapia.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gudfisioterapia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gudfisioterapia.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gudfisioterapia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gudfisioterapia.com/de/"/>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- HOME — Français -->
+  <url>
+    <loc>https://gudfisioterapia.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gudfisioterapia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gudfisioterapia.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gudfisioterapia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gudfisioterapia.com/de/"/>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- HOME — Deutsch -->
+  <url>
+    <loc>https://gudfisioterapia.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gudfisioterapia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gudfisioterapia.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gudfisioterapia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gudfisioterapia.com/de/"/>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SERVICIOS — páginas pilar SEO -->
+  <url>
+    <loc>https://gudfisioterapia.com/terapia-manual/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://gudfisioterapia.com/osteopatia/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://gudfisioterapia.com/terapia-invasiva/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://gudfisioterapia.com/fisioterapia-deportiva/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- PÁGINAS LEGALES — baja prioridad, no indexar -->
+  <url>
+    <loc>https://gudfisioterapia.com/aviso-legal/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://gudfisioterapia.com/privacidad/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://gudfisioterapia.com/cookies/</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+</urlset>
