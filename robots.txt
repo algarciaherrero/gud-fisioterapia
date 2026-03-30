@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# No indexar páginas legales
+Disallow: /aviso-legal/
+Disallow: /privacidad/
+Disallow: /cookies/
+
+# Sitemap
+Sitemap: https://gudfisioterapia.com/sitemap.xml
