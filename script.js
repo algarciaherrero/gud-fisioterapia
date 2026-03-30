@@ -1,4 +1,129 @@
-<!DOCTYPE html>
+'use strict';
+
+// HEADER SCROLL
+(function initHeaderScroll() {
+  const header = document.getElementById('header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// MENU MOVIL
+(function initMobileMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (!hamburger || !mobileMenu) return;
+  const toggle = (open) => {
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileMenu.classList.toggle('open', open);
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  hamburger.addEventListener('click', () => toggle(!hamburger.classList.contains('open')));
+  mobileMenu.querySelectorAll('.mobile-nav__link').forEach(link => link.addEventListener('click', () => toggle(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hamburger.classList.contains('open')) { toggle(false); hamburger.focus(); } });
+})();
+
+// ANIMACIONES — threshold 0 + fallback 1.5s
+(function initAnimations() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('[data-animate]').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const elements = document.querySelectorAll('[data-animate]');
+  if (!elements.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay ? parseInt(entry.target.dataset.delay) : 0;
+        setTimeout(() => entry.target.classList.add('is-visible'), delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+  elements.forEach(el => observer.observe(el));
+  // Fallback: forzar visibilidad tras 1.5s
+  setTimeout(() => {
+    document.querySelectorAll('[data-animate]:not(.is-visible)').forEach(el => el.classList.add('is-visible'));
+  }, 1500);
+})();
+
+// SMOOTH SCROLL
+(function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      const headerHeight = document.getElementById('header')?.offsetHeight || 72;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerHeight - 16, behavior: 'smooth' });
+    });
+  });
+})();
+
+// SELECTOR IDIOMA
+const BASE = '/gud-fisioterapia';
+const LANG_URLS = { es: BASE + '/', en: BASE + '/en/', fr: BASE + '/fr/', de: BASE + '/de/' };
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const btnLang = btn.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/)?.[1];
+    btn.classList.toggle('active', btnLang === lang);
+  });
+  try { localStorage.setItem('gud-lang', lang); } catch (_) {}
+  const url = LANG_URLS[lang];
+  if (url && window.location.pathname !== url) window.location.href = url;
+}
+window.setLang = setLang;
+
+(function restoreLang() {
+  try {
+    const saved = localStorage.getItem('gud-lang');
+    if (saved && LANG_URLS[saved]) {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/)?.[1];
+        btn.classList.toggle('active', btnLang === saved);
+      });
+    }
+  } catch (_) {}
+})();
+
+// ACTIVE NAV
+(function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__link');
+  if (!sections.length || !navLinks.length) return;
+  const headerHeight = document.getElementById('header')?.offsetHeight || 72;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-' + (headerHeight + 20) + 'px 0px -50% 0px', threshold: 0 });
+  sections.forEach(section => observer.observe(section));
+})();
+
+// BANNER COOKIES
+(function initCookieBanner() {
+  const COOKIE_KEY = 'gud_cookies';
+  try { if (localStorage.getItem(COOKIE_KEY)) return; } catch (_) {}
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Aviso de cookies');
+  banner.innerHTML = '<div class="cookie-banner__inner"><p class="cookie-banner__text">Usamos cookies tecnicas propias y de terceros (Google Fonts y Google Maps) necesarias para el funcionamiento del sitio. No usamos cookies publicitarias. <a href="/gud-fisioterapia/cookies/">Mas informacion</a></p><div class="cookie-banner__actions"><button class="cookie-btn cookie-btn--reject" id="cookie-reject">Solo necesarias</button><button class="cookie-btn cookie-btn--accept" id="cookie-accept">Aceptar</button></div></div>';
+  document.body.appendChild(banner);
+  requestAnimationFrame(() => requestAnimationFrame(() => banner.classList.add('is-visible')));
+  const dismiss = (v) => { banner.classList.remove('is-visible'); try { localStorage.setItem(COOKIE_KEY, v); } catch (_) {} setTimeout(() => banner.remove(), 400); };
+  document.getElementById('cookie-accept')?.addEventListener('click', () => dismiss('accepted'));
+  document.getElementById('cookie-reject')?.addEventListener('click', () => dismiss('rejected'));
+})();<!DOCTYPE html>
 <html lang="es">
 <head>  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
