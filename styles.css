@@ -1754,3 +1754,6 @@ h1, h2, h3, h4, h5 {
 
 
 
+
+.contacto__cards--single { display: flex; justify-content: center; }
+.contacto__cards--single .contacto-card--whatsapp { max-width: 400px; width: 100%; }
