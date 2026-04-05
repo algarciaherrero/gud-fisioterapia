@@ -1299,16 +1299,7 @@ h1, h2, h3, h4, h5 {
 /* ─── ANIMACIONES DE ENTRADA ─────────────────────────────── */
 /* Animaciones: los elementos son visibles por defecto.
    Las animaciones son mejora progresiva, no requisito. */
-@media (prefers-reduced-motion: no-preference) {
-  [data-animate] { }
-  [data-animate="fade-up"]    { transform: translateY(32px); }
-  [data-animate="fade-left"]  { transform: translateX(32px); }
-  [data-animate="fade-right"] { transform: translateX(-32px); }
-  [data-animate].is-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
+
 
 /* Delays staggered para los servicios */
 [data-delay="100"] { transition-delay: 0.1s; }
@@ -1442,7 +1433,7 @@ h1, h2, h3, h4, h5 {
   }
 
   html { scroll-behavior: auto; }
-  [data-animate] { }
+  
 }
 
 /* ─── DROPDOWN NAV ───────────────────────────────────────── */
@@ -1759,6 +1750,8 @@ h1, h2, h3, h4, h5 {
 .contacto__cards--single .contacto-card--whatsapp { max-width: 400px; width: 100%; }
 
 
-[data-animate] { opacity: 1 !important; transform: none !important; }
+
 
 [data-animate], [data-animate='fade-up'], [data-animate='fade-left'], [data-animate='fade-right'] { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+[data-animate] { opacity: 1 !important; transform: none !important; }
