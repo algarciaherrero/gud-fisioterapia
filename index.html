@@ -41,7 +41,6 @@
         "name": "GUD Fisioterapia",
         "description": "Clínica de fisioterapia especializada en terapia manual, osteopatía, terapia invasiva y fisioterapia deportiva en el barrio de Chamartín, Madrid.",
         "url": "https://gudfisioterapia.com",
-        "telephone": "+34642490167",
         "image": "https://gudfisioterapia.com/img/og-image.jpg",
         "priceRange": "€€",
         "address": {
@@ -60,8 +59,8 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-            "opens": "07:00",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
+            "opens": "09:00",
             "closes": "20:00"
           }
         ],
@@ -137,7 +136,7 @@
           <button class="lang-btn" onclick="setLang('fr')" aria-label="Français">FR</button>
           <button class="lang-btn" onclick="setLang('de')" aria-label="Deutsch">DE</button>
         </div>
-        <a href="tel:+34642490167" class="btn btn--primary header__cta">Pedir cita</a>
+        <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita" target="_blank" rel="noopener noreferrer" class="btn btn--primary header__cta">Pedir cita</a>
       </div>
 
       <!-- Hamburger móvil -->
@@ -169,7 +168,7 @@
           <button class="lang-btn" onclick="setLang('fr')">FR</button>
           <button class="lang-btn" onclick="setLang('de')">DE</button>
         </div>
-        <a href="tel:+34642490167" class="btn btn--primary mobile-cta">Pedir cita ahora</a>
+        <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita" target="_blank" rel="noopener noreferrer" class="btn btn--primary mobile-cta">Pedir cita ahora</a>
       </nav>
     </div>
   </header>
@@ -211,7 +210,7 @@
 
           <!-- CTAs -->
           <div class="hero__ctas">
-            <a href="tel:+34642490167" class="btn btn--primary btn--lg">
+            <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
               Reservar cita
             </a>
             <a href="#servicios" class="btn btn--ghost btn--lg">
@@ -252,7 +251,7 @@
             >
             <!-- Badge flotante sobre la imagen -->
             <div class="hero__badge" aria-label="Atleta de crossfit y fisioterapeuta">
-              <span class="hero__badge-icon" aria-hidden="true">🏋️</span>
+              <svg class="hero__badge-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M6 21v-2a6 6 0 0112 0v2"/></svg>
               <div>
                 <strong>Pablo Ruiz</strong>
                 <span>Atleta · Fisioterapeuta</span>
@@ -363,6 +362,81 @@
       </div>
     </section>
 
+
+    <!-- ═══════════════════════════════════════════
+         PRECIOS
+    ═══════════════════════════════════════════ -->
+    <section class="precios" id="precios" aria-labelledby="precios-heading">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <p class="section-eyebrow">Tarifas</p>
+          <h2 id="precios-heading" class="section-title">Transparencia desde el primer día</h2>
+          <p class="section-desc">Sin sorpresas. El precio que ves es el precio que pagas.</p>
+        </div>
+        <div class="precios__grid">
+
+          <div class="precio-card" data-animate="fade-up" data-delay="0">
+            <div class="precio-card__header">
+              <span class="precio-card__label">Sesión individual</span>
+              <div class="precio-card__price">
+                <span class="precio-card__amount">55</span>
+                <span class="precio-card__currency">€</span>
+              </div>
+              <span class="precio-card__duration">1 hora</span>
+            </div>
+            <ul class="precio-card__features">
+              <li>Primera visita y valoración</li>
+              <li>Tratamiento personalizado</li>
+              <li>Sin compromiso</li>
+            </ul>
+            <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20individual" target="_blank" rel="noopener noreferrer" class="btn btn--outline precio-card__cta">
+              Reservar sesión
+            </a>
+          </div>
+
+          <div class="precio-card precio-card--featured" data-animate="fade-up" data-delay="100">
+            <div class="precio-card__badge">Más popular</div>
+            <div class="precio-card__header">
+              <span class="precio-card__label">Bono 5 sesiones</span>
+              <div class="precio-card__price">
+                <span class="precio-card__amount">260</span>
+                <span class="precio-card__currency">€</span>
+              </div>
+              <span class="precio-card__duration">5 × 1 hora</span>
+            </div>
+            <ul class="precio-card__features">
+              <li>52€ por sesión</li>
+              <li>Ahorro de 15€</li>
+              <li>Tratamientos continuados</li>
+            </ul>
+            <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20reservar%20el%20bono%20de%205%20sesiones" target="_blank" rel="noopener noreferrer" class="btn btn--primary precio-card__cta">
+              Reservar bono
+            </a>
+          </div>
+
+          <div class="precio-card" data-animate="fade-up" data-delay="200">
+            <div class="precio-card__header">
+              <span class="precio-card__label">Bono 10 sesiones</span>
+              <div class="precio-card__price">
+                <span class="precio-card__amount">500</span>
+                <span class="precio-card__currency">€</span>
+              </div>
+              <span class="precio-card__duration">10 × 1 hora</span>
+            </div>
+            <ul class="precio-card__features">
+              <li>50€ por sesión</li>
+              <li>Ahorro de 50€</li>
+              <li>Mejor precio garantizado</li>
+            </ul>
+            <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20reservar%20el%20bono%20de%2010%20sesiones" target="_blank" rel="noopener noreferrer" class="btn btn--outline precio-card__cta">
+              Reservar bono
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════════════
          SOBRE PABLO — storytelling + E-E-A-T
     ═══════════════════════════════════════════ -->
@@ -382,11 +456,11 @@
             >
             <!-- Credenciales flotantes -->
             <div class="pablo__cred pablo__cred--top">
-              <span class="pablo__cred-icon" aria-hidden="true">🎓</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               <span>Diplomado en Fisioterapia · 2007</span>
             </div>
             <div class="pablo__cred pablo__cred--bottom">
-              <span class="pablo__cred-icon" aria-hidden="true">🏆</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4a2 2 0 000 4h2"/><path d="M18 9h2a2 2 0 010 4h-2"/><path d="M6 9V5h12v4"/><path d="M6 13c0 3.314 2.686 6 6 6s6-2.686 6-6"/><path d="M9 21h6M12 19v2"/></svg>
               <span>+15 años · Hospitales · Mutuas</span>
             </div>
           </div>
@@ -439,28 +513,21 @@
 
           <address class="ubicacion__address" itemscope itemtype="https://schema.org/PostalAddress">
             <div class="info-row">
-              <span class="info-row__icon" aria-hidden="true">📍</span>
+              <svg class="info-row__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <div>
                 <strong>Dirección</strong>
-                <span itemprop="streetAddress">Calle Apolonio Morales 10, local F</span>
+                <a href="https://maps.google.com/?q=Calle+Apolonio+Morales+10+Local+F+Chamartin+Madrid" target="_blank" rel="noopener noreferrer" itemprop="streetAddress">Calle Apolonio Morales 10, local F</a>
                 <span itemprop="addressLocality">Madrid</span>
                 <span itemprop="postalCode">28036</span> —
                 <span itemprop="addressRegion">La Fábrica</span>
               </div>
             </div>
             <div class="info-row">
-              <span class="info-row__icon" aria-hidden="true">🕐</span>
+              <svg class="info-row__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               <div>
                 <strong>Horario</strong>
-                <span>Lunes a Viernes, 7:00 – 20:00</span>
-                <span class="info-note">Sábado y Domingo cerrado</span>
-              </div>
-            </div>
-            <div class="info-row">
-              <span class="info-row__icon" aria-hidden="true">📞</span>
-              <div>
-                <strong>Teléfono / WhatsApp</strong>
-                <a href="tel:+34642490167" itemprop="telephone">+34 642 490 167</a>
+                <span>Lunes–Jueves, 9:00–20:00 · Viernes, 9:00–18:00</span>
+                <span class="info-note">Sábado y domingo cerrado</span>
               </div>
             </div>
           </address>
@@ -479,7 +546,6 @@
               </svg>
               WhatsApp ahora
             </a>
-            <a href="tel:+34642490167" class="btn btn--outline btn--lg">Llamar</a>
           </div>
         </div>
 
@@ -512,7 +578,7 @@
           <h2 id="contacto-heading" class="contacto__title">¿Hablamos?</h2>
           <p class="contacto__desc">
             Sin esperas. Sin formularios.<br>
-            Escríbeme o llama y buscamos el hueco que mejor te venga.
+            Escríbeme y buscamos el hueco que mejor te venga.
           </p>
 
           <div class="contacto__cards">
@@ -534,25 +600,7 @@
               <div class="contacto-card__body">
                 <span class="contacto-card__label">WhatsApp</span>
                 <span class="contacto-card__value">+34 642 490 167</span>
-                <span class="contacto-card__hint">Escríbeme ahora →</span>
-              </div>
-            </a>
-
-            <!-- Teléfono -->
-            <a
-              href="tel:+34642490167"
-              class="contacto-card contacto-card--phone"
-              aria-label="Llamar a Pablo Ruiz"
-            >
-              <div class="contacto-card__icon" aria-hidden="true">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-              </div>
-              <div class="contacto-card__body">
-                <span class="contacto-card__label">Teléfono</span>
-                <span class="contacto-card__value">642 490 167</span>
-                <span class="contacto-card__hint">Lun–Vie · 7:00–20:00</span>
+                <span class="contacto-card__hint">L–J 9:00–20:00 · V 9:00–18:00</span>
               </div>
             </a>
 
@@ -560,7 +608,7 @@
 
           <p class="contacto__note">
             También puedes pasarte directamente a la clínica:<br>
-            <strong>C/ Apolonio Morales 10, local F · La Fábrica · Madrid</strong>
+            <strong><a href="https://maps.google.com/?q=Calle+Apolonio+Morales+10+Local+F+Chamartin+Madrid" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px">C/ Apolonio Morales 10, local F · La Fábrica · Madrid</a></strong>
           </p>
         </div>
 
@@ -596,8 +644,7 @@
         <address itemscope itemtype="https://schema.org/PostalAddress">
           <p itemprop="streetAddress">C/ Apolonio Morales 10, local F</p>
           <p><span itemprop="addressLocality">Madrid</span> · La Fábrica</p>
-          <p><a href="tel:+34642490167" itemprop="telephone">+34 642 490 167</a></p>
-          <p>Lunes–Viernes · 7:00–20:00</p>
+          <p>L–J 9:00–20:00 · V 9:00–18:00</p>
         </address>
       </div>
 

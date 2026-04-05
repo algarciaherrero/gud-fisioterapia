@@ -1553,3 +1553,195 @@ h1, h2, h3, h4, h5 {
   background: var(--color-primary-light);
   color: var(--color-primary) !important;
 }
+
+/* ─── PRECIOS ────────────────────────────────────────────── */
+.precios {
+  padding-block: var(--space-24);
+  background: var(--color-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.precios::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: var(--color-primary);
+  opacity: 0.06;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.precios .section-eyebrow { color: var(--color-accent); }
+.precios .section-title   { color: var(--color-white); }
+.precios .section-desc    { color: rgba(255,255,255,0.5); margin-inline: auto; }
+
+.precios__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.precio-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: relative;
+  transition: all var(--transition-slow);
+}
+
+.precio-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-4px);
+}
+
+.precio-card--featured {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.04);
+  box-shadow: 0 20px 60px rgba(15, 125, 194, 0.4);
+}
+
+.precio-card--featured:hover {
+  transform: scale(1.04) translateY(-4px);
+  background: var(--color-primary-dark);
+}
+
+.precio-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.precio-card__header { text-align: center; }
+
+.precio-card__label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: var(--space-4);
+}
+
+.precio-card--featured .precio-card__label {
+  color: rgba(255,255,255,0.8);
+}
+
+.precio-card__price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: var(--space-2);
+}
+
+.precio-card__amount {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.precio-card__currency {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  margin-top: 8px;
+}
+
+.precio-card__duration {
+  display: block;
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.4);
+}
+
+.precio-card--featured .precio-card__duration {
+  color: rgba(255,255,255,0.7);
+}
+
+.precio-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.precio-card__features li {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.6);
+  padding-left: var(--space-5);
+  position: relative;
+  line-height: 1.5;
+}
+
+.precio-card--featured .precio-card__features li {
+  color: rgba(255,255,255,0.9);
+}
+
+.precio-card__features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.precio-card--featured .precio-card__features li::before {
+  background: rgba(255,255,255,0.8);
+}
+
+.precio-card__cta {
+  text-align: center;
+  width: 100%;
+}
+
+/* Fix info-row SVG icons */
+.info-row__icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .precios__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .precio-card--featured {
+    transform: scale(1);
+    order: -1;
+  }
+  .precio-card--featured:hover {
+    transform: translateY(-4px);
+  }
+}
