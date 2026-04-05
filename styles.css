@@ -1744,11 +1744,13 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Contacto con una sola tarjeta centrada */
-.contacto__cards--single {
-  justify-content: center;
-}
+.contacto__cards--single { justify-content: center; }
+.contacto__cards--single .contacto-card { max-width: 420px; width: 100%; margin: 0 auto; }
+.contacto__cards--single .contacto-card { max-width: 420px; width: 100%; margin: 0 auto; }
 .contacto__cards--single .contacto-card {
   max-width: 380px;
   width: 100%;
 }
+
+
 
