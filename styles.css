@@ -1300,10 +1300,7 @@ h1, h2, h3, h4, h5 {
 /* Animaciones: los elementos son visibles por defecto.
    Las animaciones son mejora progresiva, no requisito. */
 @media (prefers-reduced-motion: no-preference) {
-  [data-animate] {
-    opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
+  [data-animate] { }
   [data-animate="fade-up"]    { transform: translateY(32px); }
   [data-animate="fade-left"]  { transform: translateX(32px); }
   [data-animate="fade-right"] { transform: translateX(-32px); }
@@ -1445,7 +1442,7 @@ h1, h2, h3, h4, h5 {
   }
 
   html { scroll-behavior: auto; }
-  [data-animate] { opacity: 1; transform: none; }
+  [data-animate] { }
 }
 
 /* ─── DROPDOWN NAV ───────────────────────────────────────── */
@@ -1754,3 +1751,4 @@ h1, h2, h3, h4, h5 {
   max-width: 380px;
   width: 100%;
 }
+

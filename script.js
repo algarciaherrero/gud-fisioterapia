@@ -1,3 +1,6 @@
+
+// Fix: forzar visibilidad inmediata
+document.addEventListener('DOMContentLoaded', function() { document.querySelectorAll('[data-animate]').forEach(function(el) { el.classList.add('is-visible'); }); });
 /* ═══════════════════════════════════════════════════════════
    GUD FISIOTERAPIA — script.js
    Funcionalidades: animaciones scroll · menú móvil ·
@@ -334,3 +337,4 @@ window.setLang = setLang;
   document.getElementById('cookie-accept')?.addEventListener('click', () => dismiss('accepted'));
   document.getElementById('cookie-reject')?.addEventListener('click', () => dismiss('rejected'));
 })();
+
