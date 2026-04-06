@@ -81,13 +81,13 @@
           <li><a href="/gud-fisioterapia/#contacto" class="nav__link">Contacto</a></li>
         </ul>
       </nav>
-      <div class="header__actions">
-        <div class="lang-selector">
-          <button class="lang-btn active" onclick="setLang('es')">ES</button>
-          <button class="lang-btn" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" onclick="setLang('fr')">FR</button>
-          <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <div class="header__lang" role="navigation" aria-label="Selección de idioma">
+          <button class="lang-btn active" onclick="setLang('es')" aria-label="Español">ES</button>
+          <button class="lang-btn" onclick="setLang('en')" aria-label="English">EN</button>
+          <button class="lang-btn" onclick="setLang('fr')" aria-label="Français">FR</button>
+          <button class="lang-btn" onclick="setLang('de')" aria-label="Deutsch">DE</button>
         </div>
+      <div class="header__actions">
         <a href="https://wa.me/34642490167?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20pedir%20cita" target="_blank" rel="noopener noreferrer" class="btn btn--primary header__cta">Pedir cita</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">

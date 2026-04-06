@@ -1826,5 +1826,44 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.header__lang-mobile-inline { display:none; }
-@media (max-width:768px) { .header__lang-mobile-inline { display:flex; gap:4px; align-items:center; } .header__lang-mobile-inline .lang-btn { padding:4px 8px; font-size:11px; font-weight:600; border:1px solid #dde3ee; border-radius:4px; background:transparent; cursor:pointer; color:#555; } .header__lang-mobile-inline .lang-btn.active { background:#0F7DC2; border-color:#0F7DC2; color:white; } }
+/* ─── SELECTOR DE IDIOMA — SIEMPRE VISIBLE ──────────────────
+   header__lang es independiente de header__actions
+   Se muestra tanto en desktop como en móvil
+   ──────────────────────────────────────────────────────────── */
+.header__lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header__lang .lang-btn {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  color: var(--color-gray-60);
+  transition: all var(--transition-fast);
+}
+
+.header__lang .lang-btn.active,
+.header__lang .lang-btn:hover {
+  background: var(--color-white);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  /* En móvil el lang del header sigue visible */
+  .header__lang {
+    display: flex !important;
+    gap: 2px;
+  }
+  .header__lang .lang-btn {
+    padding: 3px 7px;
+    font-size: 11px;
+  }
+}
