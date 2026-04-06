@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#0F7DC2"/>
-  <text x="16" y="22" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="white" text-anchor="middle">G</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fondo azul redondeado -->
+  <rect width="64" height="64" rx="14" fill="#0F7DC2"/>
+  <!-- Símbolo GUD simplificado en blanco -->
+  <text x="32" y="45" 
+    font-family="Arial Black, Arial, sans-serif" 
+    font-weight="900" 
+    font-size="36" 
+    fill="white" 
+    text-anchor="middle">G</text>
 </svg>
