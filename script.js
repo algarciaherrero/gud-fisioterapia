@@ -1,6 +1,3 @@
-
-// Fix: forzar visibilidad inmediata
-document.addEventListener('DOMContentLoaded', function() { document.querySelectorAll('[data-animate]').forEach(function(el) { el.classList.add('is-visible'); }); });
 /* ═══════════════════════════════════════════════════════════
    GUD FISIOTERAPIA — script.js
    Funcionalidades: animaciones scroll · menú móvil ·
@@ -57,40 +54,10 @@ document.addEventListener('DOMContentLoaded', function() { document.querySelecto
 
 // ─── ANIMACIONES DE ENTRADA — IntersectionObserver ─────────
 (function initAnimations() {
-  const elements = document.querySelectorAll('[data-animate]');
-  if (!elements.length) return;
-
-  // Sin animaciones si el usuario lo prefiere
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    elements.forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
-  // Fallback inmediato: todos visibles en 800ms pase lo que pase
-  const fallback = setTimeout(() => {
-    elements.forEach(el => el.classList.add('is-visible'));
-  }, 800);
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const delay = entry.target.dataset.delay ? parseInt(entry.target.dataset.delay) : 0;
-          setTimeout(() => entry.target.classList.add('is-visible'), delay);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0, rootMargin: '50px' }
-  );
-
-  elements.forEach(el => observer.observe(el));
-
-  // Si todos ya son visibles, cancelar fallback
-  setTimeout(() => {
-    const remaining = document.querySelectorAll('[data-animate]:not(.is-visible)').length;
-    if (remaining === 0) clearTimeout(fallback);
-  }, 200);
+  // Añadir is-visible inmediatamente a todos los elementos
+  document.querySelectorAll('[data-animate]').forEach(function(el) {
+    el.classList.add('is-visible');
+  });
 })();
 
 // ─── SMOOTH SCROLL para anclas internas ────────────────────
@@ -337,4 +304,3 @@ window.setLang = setLang;
   document.getElementById('cookie-accept')?.addEventListener('click', () => dismiss('accepted'));
   document.getElementById('cookie-reject')?.addEventListener('click', () => dismiss('rejected'));
 })();
-

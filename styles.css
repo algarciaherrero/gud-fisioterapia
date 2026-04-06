@@ -1300,7 +1300,6 @@ h1, h2, h3, h4, h5 {
 /* Animaciones: los elementos son visibles por defecto.
    Las animaciones son mejora progresiva, no requisito. */
 
-
 /* Delays staggered para los servicios */
 [data-delay="100"] { transition-delay: 0.1s; }
 [data-delay="200"] { transition-delay: 0.2s; }
@@ -1735,23 +1734,54 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Contacto con una sola tarjeta centrada */
-.contacto__cards--single { justify-content: center; }
-.contacto__cards--single .contacto-card { max-width: 420px; width: 100%; margin: 0 auto; }
-.contacto__cards--single .contacto-card { max-width: 420px; width: 100%; margin: 0 auto; }
+.contacto__cards--single {
+  justify-content: center;
+}
 .contacto__cards--single .contacto-card {
   max-width: 380px;
   width: 100%;
 }
 
+/* ─── ANIMACIONES DESACTIVADAS ──────────────────────────────
+   Las animaciones de scroll causaban problemas en GitHub Pages.
+   Todos los elementos son visibles por defecto.
+   ──────────────────────────────────────────────────────────── */
+[data-animate] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
 
+/* ─── IDIOMA EN MENÚ MÓVIL ───────────────────────────────── */
+.mobile-lang {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4) 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: var(--space-4);
+}
 
+.mobile-lang .lang-btn {
+  flex: 1;
+  padding: var(--space-2) 0;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
 
-.contacto__cards--single { display: flex; justify-content: center; }
-.contacto__cards--single .contacto-card--whatsapp { max-width: 400px; width: 100%; }
+.mobile-lang .lang-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
 
-
-
-
-[data-animate], [data-animate='fade-up'], [data-animate='fade-left'], [data-animate='fade-right'] { opacity: 1 !important; transform: none !important; transition: none !important; }
-
-[data-animate] { opacity: 1 !important; transform: none !important; }
+.mobile-lang .lang-btn:hover:not(.active) {
+  border-color: rgba(255,255,255,0.4);
+  color: var(--color-white);
+}
