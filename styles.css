@@ -1825,3 +1825,6 @@ h1, h2, h3, h4, h5 {
     color: white;
   }
 }
+
+.header__lang-mobile-inline { display:none; }
+@media (max-width:768px) { .header__lang-mobile-inline { display:flex; gap:4px; align-items:center; } .header__lang-mobile-inline .lang-btn { padding:4px 8px; font-size:11px; font-weight:600; border:1px solid #dde3ee; border-radius:4px; background:transparent; cursor:pointer; color:#555; } .header__lang-mobile-inline .lang-btn.active { background:#0F7DC2; border-color:#0F7DC2; color:white; } }
